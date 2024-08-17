@@ -8,9 +8,31 @@ document.addEventListener('DOMContentLoaded', function(){
     function evaluateResult(){
         // Replace special symbols with their JavaScript equivalents
         const convertedValue = currentValueToDisplay
-            .replace(/×/g, '*')
             .replace(/÷/g, '/')
+            .replace(/×/g, '*')
             .replace(/%/g, '*0.01')
+            .replace('sin', 'Math.sin')
+            .replace('cos', 'Math.cos')
+            .replace('tan', 'Math.tan')
+            .replace('ln', 'Math.log')
+            .replace('π', 'Math.PI')
+            .replace('e', 'Math.E')
+            .replace('log', 'Math.log10')
+            .replace('2√x', 'Math.sqrt')
+            .replace('x²', '**2')
+            .replace('x³', '**3')
+            .replace('xʸ', '**')
+            .replace('10ˣ', '10**')
+            .replace('1/x', '(1/')
+            .replace('√', 'Math.sqrt')
+            .replace('x!', 'factorial')
+            .replace('sinh', 'Math.sinh')
+            .replace('cosh', 'Math.cosh')
+            .replace('tanh', 'Math.tanh')
+            .replace('EE', 'Math.pow(10,')
+            .replace('Rand', 'Math.random()')
+            .replace('log₂', 'Math.log2')
+            .replace('log₁₀', 'Math.log10');
         const result = eval(convertedValue)
         currentValueToDisplay = result.toString();
         calcDisplay.value = currentValueToDisplay
@@ -31,14 +53,4 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         })
     });
-
-    // for loop:
-    // for (let i = 0; i <calButtons.length; i++){
-    //     const calcButton = calButtons[i];
-    //     calcButton.addEventListener('click', function(){
-            // const valueOfTheButton = calButton.textContent;
-            // currentValueToDisplay += valueOfTheButton
-            // calcDisplay.value = currentValueToDisplay;
-    //     })
-    // }
 })
