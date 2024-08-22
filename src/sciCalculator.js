@@ -42,15 +42,22 @@ document.addEventListener('DOMContentLoaded', function(){
     calButtons.forEach(calButton => {
         calButton.addEventListener('click', function(){
             const valueOfTheButton = calButton.textContent;
-            if (valueOfTheButton === 'AC'){
-                currentValueToDisplay = '';
-                calcDisplay.value = currentValueToDisplay
-            }else if(valueOfTheButton ==='='){
-                evaluateResult();
-            }else{
-                currentValueToDisplay += valueOfTheButton
+            try{
+               if (valueOfTheButton === 'AC'){
+                   currentValueToDisplay = '';
+                   calcDisplay.value = currentValueToDisplay
+               }else if(valueOfTheButton ==='='){
+                   evaluateResult();
+               }else{
+                   currentValueToDisplay += valueOfTheButton
+                   calcDisplay.value = currentValueToDisplay;
+               }
+
+           } catch(error){
+                console.error(error);
+                currentValueToDisplay = 'ERROR'
                 calcDisplay.value = currentValueToDisplay;
-            }
+           }
         })
     });
 })
