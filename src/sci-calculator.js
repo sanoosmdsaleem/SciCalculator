@@ -66,7 +66,7 @@ class SciCalculator{
             case '+':
                 computation = previousValue + currentValue;
                 break
-            default:    //If the operation is not recognized, stops execution.
+            default: 
                 return
         }
         this.currentOperand = computation; 
@@ -80,7 +80,6 @@ class SciCalculator{
         } else {
             this.previousOperandTextElement.innerText = ''
         }
-
     }
 }
 
@@ -91,7 +90,6 @@ const allClearButtons = document.querySelector('[data-all-clear]')
 const numberButtons = document.querySelectorAll('[data-number]')
 const basicOperationButtons = document.querySelectorAll('[data-basic-operation]')
 const equalButton = document.querySelector('[data-equal]')
-
 
 const calculator = new SciCalculator(previousOperandTextElement, currentOperandTextElement)
 
@@ -117,7 +115,7 @@ basicOperationButtons.forEach(
             calculator.displayResult()
         })
     }
-)
+)+
 
 equalButton.addEventListener('click', button => {
     calculator.result()
